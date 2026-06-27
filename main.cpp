@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-    srand(time(nullptr));
+    srand((unsigned)time(NULL));
 
     vector<Mahasiswa> dataMahasiswa;
 
