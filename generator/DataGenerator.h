@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Membuat sejumlah data mahasiswa secara otomatis
-vector<Mahasiswa> generateDataMahasiswa(int jumlah);
+vector<Mahasiswa> generateDataMahasiswa(int jumlahData);
 
 #endif

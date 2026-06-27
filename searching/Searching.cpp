@@ -4,12 +4,14 @@ using namespace std;
 
 int sequentialSearch(
     const vector<Mahasiswa>& data,
-    const string& nim)
+    const string& targetNIM)
 {
-    for(int i=0;i<data.size();i++)
+    for (int i = 0; i < (int)data.size(); i++)
     {
-        if(data[i].getNim()==nim)
+        if (data[i].getNim() == targetNIM)
+        {
             return i;
+        }
     }
 
     return -1;
@@ -17,22 +19,28 @@ int sequentialSearch(
 
 int binarySearch(
     const vector<Mahasiswa>& data,
-    const string& nim)
+    const string& targetNIM)
 {
-    int kiri=0;
-    int kanan=data.size()-1;
+    int left = 0;
+    int right = (int)data.size() - 1;
 
-    while(kiri<=kanan)
+    while (left <= right)
     {
-        int tengah=(kiri+kanan)/2;
+        int mid = left + (right - left) / 2;
 
-        if(data[tengah].getNim()==nim)
-            return tengah;
+        if (data[mid].getNim() == targetNIM)
+        {
+            return mid;
+        }
 
-        if(data[tengah].getNim()<nim)
-            kiri=tengah+1;
+        if (data[mid].getNim() < targetNIM)
+        {
+            left = mid + 1;
+        }
         else
-            kanan=tengah-1;
+        {
+            right = mid - 1;
+        }
     }
 
     return -1;

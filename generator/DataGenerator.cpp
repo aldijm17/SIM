@@ -1,25 +1,88 @@
 #include "DataGenerator.h"
 
+#include <string>
 #include <cstdlib>
-#include <ctime>
+#include <sstream>
+#include <iomanip>
 
-vector<Mahasiswa> generateDataMahasiswa(int jumlah)
+using namespace std;
+
+static const string daftarNama[] =
+{
+    "Aldi", "Budi", "Citra", "Dimas", "Eka",
+    "Farhan", "Gita", "Hana", "Indra", "Joko",
+    "Kevin", "Laila", "Maya", "Nanda", "Olivia",
+    "Putra", "Qori", "Rina", "Sinta", "Taufik",
+    "Umar", "Vina", "Wahyu", "Yusuf", "Zahra"
+};
+
+static const string daftarProdi[] =
+{
+    "Informatika",
+    "Sistem Informasi",
+    "Teknik Komputer",
+    "Teknik Elektro",
+    "Manajemen",
+    "Akuntansi"
+};
+
+string generateNIM(int nomor)
+{
+    stringstream ss;
+
+    // Format:
+    // 251100001
+    ss << "2511"
+       << setw(5)
+       << setfill('0')
+       << nomor;
+
+    return ss.str();
+}
+
+string generateNama()
+{
+    int index = rand() % 25;
+
+    return daftarNama[index];
+}
+
+string generateProdi()
+{
+    int index = rand() % 6;
+
+    return daftarProdi[index];
+}
+
+int generateSemester()
+{
+    return (rand() % 8) + 1;
+}
+
+float generateIPK()
+{
+    // IPK antara 2.00 - 4.00
+
+    int nilai = 200 + rand() % 201;
+
+    return nilai / 100.0f;
+}
+
+vector<Mahasiswa> generateDataMahasiswa(int jumlahData)
 {
     vector<Mahasiswa> data;
 
-    srand(time(NULL));
+    data.reserve(jumlahData);
 
-    for(int i = 1; i <= jumlah; i++)
+    for(int i = 1; i <= jumlahData; i++)
     {
-        string nim = "251108" + to_string(1000 + i);
-
-        string nama = "Mahasiswa_" + to_string(i);
-
-        float ipk = 2.00 + (rand() % 201) / 100.0f;
-
-        int sks = 100 + rand() % 45;
-
-        Mahasiswa m(nim, nama, ipk, sks);
+        Mahasiswa m(
+            generateNIM(i),
+            generateNama(),
+            generateProdi(),
+            generateSemester(),
+            generateIPK()
+        );
 
         data.push_back(m);
     }

@@ -2,17 +2,17 @@
 
 void Timer::start()
 {
-    startTime=high_resolution_clock::now();
+    startTime = std::chrono::high_resolution_clock::now();
 }
 
 void Timer::stop()
 {
-    endTime=high_resolution_clock::now();
+    endTime = std::chrono::high_resolution_clock::now();
 }
 
-long long Timer::getMicroseconds() const
+long long Timer::getMicroseconds()
 {
-    return duration_cast<microseconds>(
-            endTime-startTime
-           ).count();
+    return std::chrono::duration_cast<std::chrono::microseconds>(
+        endTime - startTime
+    ).count();
 }

@@ -10,13 +10,13 @@ using namespace std;
 // Sequential Search
 int sequentialSearch(
     const vector<Mahasiswa>& data,
-    const string& nim
+    const string& targetNIM
 );
 
 // Binary Search
 int binarySearch(
     const vector<Mahasiswa>& data,
-    const string& nim
+    const string& targetNIM
 );
 
 #endif

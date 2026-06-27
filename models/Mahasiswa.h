@@ -10,27 +10,35 @@ class Mahasiswa
 private:
     string nim;
     string nama;
+    string prodi;
+    int semester;
     float ipk;
-    int sks;
 
 public:
-
     // Constructor
     Mahasiswa();
 
-    Mahasiswa(string nim, string nama, float ipk, int sks);
-
-    // Setter
-    void setNim(string nim);
-    void setNama(string nama);
-    void setIpk(float ipk);
-    void setSks(int sks);
+    Mahasiswa(
+        string nim,
+        string nama,
+        string prodi,
+        int semester,
+        float ipk
+    );
 
     // Getter
     string getNim() const;
     string getNama() const;
+    string getProdi() const;
+    int getSemester() const;
     float getIpk() const;
-    int getSks() const;
+
+    // Setter
+    void setNim(const string& nim);
+    void setNama(const string& nama);
+    void setProdi(const string& prodi);
+    void setSemester(int semester);
+    void setIpk(float ipk);
 };
 
 #endif

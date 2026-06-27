@@ -3,23 +3,17 @@
 
 #include <chrono>
 
-using namespace std;
-using namespace chrono;
-
 class Timer
 {
 private:
-
-    high_resolution_clock::time_point startTime;
-    high_resolution_clock::time_point endTime;
+    std::chrono::high_resolution_clock::time_point startTime;
+    std::chrono::high_resolution_clock::time_point endTime;
 
 public:
-
     void start();
-
     void stop();
 
-    long long getMicroseconds() const;
+    long long getMicroseconds();
 };
 
 #endif
