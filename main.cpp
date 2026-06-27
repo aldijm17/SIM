@@ -2,7 +2,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-
+#include "utils/Display.h"
 #include "models/Mahasiswa.h"
 #include "generator/DataGenerator.h"
 #include "benchmark/Benchmark.h"
@@ -55,9 +55,9 @@ int main()
                 }
                 else
                 {
-                    runBenchmark();
+                    // SEKARANG DATA DIKIRIM KE BENCHMARK!
+                    runBenchmark(dataMahasiswa); 
                 }
-
                 break;
             }
 

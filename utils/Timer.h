@@ -13,7 +13,7 @@ public:
     void start();
     void stop();
 
-    long long getMicroseconds();
+    long long getMilliseconds();
 };
 
 #endif

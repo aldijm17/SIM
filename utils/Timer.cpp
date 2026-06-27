@@ -10,9 +10,9 @@ void Timer::stop()
     endTime = std::chrono::high_resolution_clock::now();
 }
 
-long long Timer::getMicroseconds()
+long long Timer::getMilliseconds()
 {
-    return std::chrono::duration_cast<std::chrono::microseconds>(
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
         endTime - startTime
     ).count();
 }

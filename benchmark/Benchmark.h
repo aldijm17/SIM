@@ -1,6 +1,9 @@
 #ifndef BENCHMARK_H
 #define BENCHMARK_H
 
-void runBenchmark();
+#include <vector>
+#include "../models/Mahasiswa.h"
+
+void runBenchmark(const std::vector<Mahasiswa>& dataUtama);
 
 #endif
